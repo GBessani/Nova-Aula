@@ -1,4 +1,4 @@
-function sortear()
+function sorteio()
 {
     let quantidadeDeNumerosSorteados = parseInt(document.getElementById('quantidade').value);
     let numeroInicial = parseInt(document.getElementById('de').value);
@@ -18,41 +18,21 @@ function sortear()
     }
     let resultado = document.getElementById('resultado');
     resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados: ${sorteados}  </label>`;
+    alterarBotaoReset()
 }
-
-function numeroAleatorio(min , max)
+function alterarBotaoReset()
 {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function reiniciar()
-{
-
-    let botao = document.getElementById("btn-reiniciar")
-    botao.innerHTML
-
-}function sortear()
-{
-    let quantidadeDeNumerosSorteados = parseInt(document.getElementById('quantidade').value);
-    let numeroInicial = parseInt(document.getElementById('de').value);
-    let numeroFinal = parseInt(document.getElementById('ate').value);
-    let sorteados = [];
-
-    for(let i = 0; i < quantidadeDeNumerosSorteados; i++)
-    {    
-        let numero = numeroAleatorio(numeroInicial, numeroFinal);
-           
-        while(sorteados.includes(numero))
-        {
-            let numero = numeroAleatorio(numeroInicial, numeroFinal);
-        }
-        sorteados.push(numero);
-        console.log(sorteados);    
+    let botao = document.getElementById('btn-reiniciar')
+    if(botao.classList.contains('container__botao-desabilitado'))
+    {
+        botao.classList.remove('container__botao-desabilitado')
+        botao.classList.add('container__botao')
     }
-    let resultado = document.getElementById('resultado');
-    resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados: ${sorteados}  </label>`;
+    else{
+        botao.classList.remove('container__botao')
+        botao.classList.add('container__botao-desabilitado')
+    }
 }
-
 function numeroAleatorio(min , max)
 {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -60,8 +40,9 @@ function numeroAleatorio(min , max)
 
 function reiniciar()
 {
-
-    let botao = document.getElementById("btn-reiniciar")
-    botao.innerHTML
-
+    document.getElementById('quantidade').value = '';
+    document.getElementById('de').value = '';
+    document.getElementById('ate').value = '';
+    document.getElementById('resultado').innerHTML = '<label class="texto__paragrafo">Números sorteados:  nenhum até agora</label>';
+    alterarBotaoReset();
 }
