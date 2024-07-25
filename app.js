@@ -4,7 +4,7 @@ function sorteio()
     let numeroInicial = parseInt(document.getElementById('de').value);
     let numeroFinal = parseInt(document.getElementById('ate').value);
     let sorteados = [];
-    verificar(numeroFinal,numeroInicial,quantidadeDeNumerosSorteados)
+    verificar(numeroFinal,numeroInicial,quantidadeDeNumerosSorteados);
     for(let i = 0; i < quantidadeDeNumerosSorteados; i++)
     {    
         let numero = numeroAleatorio(numeroInicial, numeroFinal);
@@ -35,19 +35,18 @@ function alterarBotaoReset()
 }
 function verificar(a , b , c)
 {
-    let teste = a - b + 1
+    let teste = a - b + 1;
     if(c > teste)
     {
-        alert("Impossivel")
-        reiniciar()
+        alert("Impossivel");
+        reiniciar();
     }
-    else{alert('tudo okk')}
+    else{alert('tudo okk');}
 }
 function numeroAleatorio(min , max)
 {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
 function reiniciar()
 {
     document.getElementById('quantidade').value = '';
