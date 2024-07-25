@@ -1,4 +1,4 @@
-function sortear()
+function sorteio()
 {
     let quantidadeDeNumerosSorteados = parseInt(document.getElementById('quantidade').value);
     let numeroInicial = parseInt(document.getElementById('de').value);
